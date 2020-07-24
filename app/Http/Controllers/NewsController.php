@@ -16,6 +16,6 @@ class NewsController extends Controller
         $news->category = $req->input('category');
         $news->deleted = 0;
         $news->save();
-        return redirect()->route('home');
+        return redirect()->route('home')->with('success','Новость добавлена');
     }
 }
