@@ -80,4 +80,10 @@ class NewsController extends Controller
         $news->save();
         return redirect()->route('one-news',$id)->with('success','Новость сохранена');
     }
+    public function deleteNews($id){
+        $news = News::find($id);
+        $news->deleted = 1;
+        $news->save();
+        return redirect()->route('home')->with('success','Новость удалена');
+    }
 }

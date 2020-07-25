@@ -23,3 +23,5 @@ Route::post('/create/submit', 'NewsController@submit')->name('create-submit');
 Route::get('/{id}', 'NewsController@showOneNews')->name('one-news');
 Route::get('/{id}/edit', 'NewsController@editNews')->name('news-edit');
 Route::post('/{id}/edit', 'NewsController@editNewsSubmit')->name('news-edit-submit');
+Route::get('/{id}/delete', 'NewsController@deleteNews')->name('news-delete');
+

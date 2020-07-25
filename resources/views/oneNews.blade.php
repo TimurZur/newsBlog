@@ -23,7 +23,7 @@
             </div>
             <div class="controls">
                 <a href="{{route('news-edit',$data->id)}}" class="btn btn-primary">Редактировать</a>
-                <!--<a href="#" class="btn btn-danger">Удалить</a>-->
+                <a href="{{route('news-delete',$data->id)}}" class="btn btn-danger">Удалить</a>
             </div>
         </div>
     </div>

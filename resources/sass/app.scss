@@ -51,9 +51,13 @@
 
 .controls {
     margin-top: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .preview-image {
     margin-top: 1rem;
     width: 50%;
 }
+
