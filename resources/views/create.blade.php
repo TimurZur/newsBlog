@@ -4,15 +4,15 @@
 
 @section('content')
     <h1 class="mb-3">Добавить новость</h1>
-    <form action="{{route('create-submit')}}" method="post">
+    <form action="{{route('create-submit')}}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
             <label for="headline">Заголовок</label>
             <input type="text" name="headline" id="headline" class="form-control" placeholder="Заголовок">
         </div>
-        <div class="form-group">
-            <label for="image">Изображение</label>
-            <input type="file" name="image" id="image" class="image-input">
+        <div class="form-group d-flex flex-column">
+            <label for="photo">Изображение</label>
+            <input type="file" name="photo" id="photo" class="image-input">
         </div>
         <div class="form-group">
             <label for="description">Описание</label>
