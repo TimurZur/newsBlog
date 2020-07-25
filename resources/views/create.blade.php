@@ -30,9 +30,9 @@
         <div class="form-group">
             <label for="category">Рубрика</label>
             <select name="category" id="category" class="form-control">
-                <option value="Спорт">Спорт</option>
-                <option value="Политика">Политика</option>
-                <option value="Коронавирус">Коронавирус</option>
+                <option value="1">Политика</option>
+                <option value="2">Спорт</option>
+                <option value="3">Коронавирус</option>
             </select>
         </div>
         <input type="submit" value="Создать" class="btn btn-success">

@@ -15,9 +15,9 @@ class NewsController extends Controller
         $news->headline = trim($req->input('headline'));
         $news->description = trim($req->input('description'));
         $news->text = trim($req->input('newsText'));
-        $news->likes = 0;
-        $news->category = $req->input('category');
-        $news->deleted = 0;
+        //$news->likes = 0;
+        $news->category_id = intval($req->input('category'));
+        //$news->deleted = 0;
         if (!is_null($req->file('photo'))) {
             // Get image file
             $image = $req->file('photo');
@@ -50,14 +50,14 @@ class NewsController extends Controller
 
         //Группировка
         switch ($categoryType){
-            case 'Политика':
-                $news = $news->where('category','=','Политика');
+            case '1':
+                $news = $news->where('category_id','=','1');
                 break;
-            case 'Спорт':
-                $news = $news->where('category','=','Спорт');
+            case '2':
+                $news = $news->where('category_id','=','2');
                 break;
-            case 'Коронавирус':
-                $news = $news->where('category','=','Коронавирус');
+            case '3':
+                $news = $news->where('category_id','=','3');
                 break;
             default:
                 $categoryType='all';
@@ -96,8 +96,8 @@ class NewsController extends Controller
         $news->headline = trim($req->input('headline'));
         $news->description = trim($req->input('description'));
         $news->text = trim($req->input('newsText'));
-        $news->category = $req->input('category');
-        $news->deleted = 0;
+        $news->category_id = intval($req->input('category'));
+        //$news->deleted = 0;
         if (!is_null($req->file('photo'))) {
             // Get image file
             $image = $req->file('photo');

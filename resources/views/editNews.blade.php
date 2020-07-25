@@ -30,9 +30,9 @@
         <div class="form-group">
             <label for="category">Рубрика</label>
             <select name="category" id="category" class="form-control">
-                <option {{$data->category=='Спорт'?'selected ':''}}value="Спорт">Спорт</option>
-                <option {{$data->category=='Политика'?'selected ':''}}value="Политика">Политика</option>
-                <option {{$data->category=='Коронавирус'?'selected ':''}}value="Коронавирус">Коронавирус</option>
+                <option {{$data->category_id=='1'?'selected ':''}}value="1">Политика</option>
+                <option {{$data->category_id=='2'?'selected ':''}}value="2">Спорт</option>
+                <option {{$data->category_id=='3'?'selected ':''}}value="3">Коронавирус</option>
             </select>
         </div>
         <input type="submit" value="Сохранить" class="btn btn-success">

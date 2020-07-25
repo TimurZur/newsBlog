@@ -18,10 +18,11 @@ class CreateNewsTable extends Migration
             $table->string('headline');
             $table->string('description');
             $table->text('text');
-            $table->integer('likes');
-            $table->string('category');
-            $table->boolean('deleted');
-            //$table->bigInteger('category_id')->unsigned();
+            $table->integer('likes')->default(0);
+            $table->string('photo')->nullable();
+            $table->boolean('deleted')->default(0);
+            $table->bigInteger('category_id')->unsigned();
+            $table->foreign('category_id')->references('id')->on('categories');
             $table->timestamps();
         });
 //        Schema::table('news', function (Blueprint $table) {

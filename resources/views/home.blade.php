@@ -19,9 +19,9 @@
                 <label for="category">Рубрика</label>
                 <select name="category" id="category" class="form-control">
                     <option value="all">Все</option>
-                    <option {{$categoryType=='Спорт'?'selected ':''}}value="Спорт">Спорт</option>
-                    <option {{$categoryType=='Политика'?'selected ':''}}value="Политика">Политика</option>
-                    <option {{$categoryType=='Коронавирус'?'selected ':''}}value="Коронавирус">Коронавирус</option>
+                    <option {{$categoryType=='1'?'selected ':''}}value="1">Политика</option>
+                    <option {{$categoryType=='2'?'selected ':''}}value="2">Спорт</option>
+                    <option {{$categoryType=='3'?'selected ':''}}value="3">Коронавирус</option>
                 </select>
             </div>
             <input type="submit" class="btn btn-primary mt-3" value="Ок">
@@ -31,12 +31,11 @@
     @foreach($data as $el)
             @if($el->deleted != 1)
                 <div class="news col-xs-12 col-sm-12 col-lg-8 col-xl-6">
-                    <div class="news__category"><div class="news__category-label"></div>{{$el->category}}</div>
+                    <div class="news__category"><div class="news__category-label"></div>{{$el->category_id}}</div>
                     <div class="news__image">
                         @if(!is_null($el->photo))
                             <img src="{{asset('storage/'.$el->photo)}}" alt="{{$el->headline}}" class="">
                     @endif
-                    <!--<span>https://avatars.mds.yandex.net/get-ynews/1738766/04e967c0f3a7393e6299989bd358c3f2/563x304</span>-->
                     </div>
                     <a class="news__header" href="{{route('one-news',$el->id)}}"><h3>{{$el->headline}}</h3></a>
                     <div class="news__description">

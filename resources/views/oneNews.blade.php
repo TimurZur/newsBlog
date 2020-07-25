@@ -4,7 +4,7 @@
 @section('content')
     <div class="news-wrapper row">
         <div class="news col-xs-12 col-sm-12 col-lg-8 col-xl-6">
-            <div class="news__category"><div class="news__category-label"></div>{{$data->category}}</div>
+            <div class="news__category"><div class="news__category-label"></div>{{$data->category_id}}</div>
             <div class="news__image">
                 @if(!is_null($data->photo))
                     <img src="{{asset('storage/'.$data->photo)}}" alt="{{$data->headline}}" class="">
