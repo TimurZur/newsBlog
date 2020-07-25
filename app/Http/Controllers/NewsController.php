@@ -12,9 +12,9 @@ class NewsController extends Controller
 {
     public function submit(NewsRequest $req){
         $news = new News();
-        $news->headline = $req->input('headline');
-        $news->description = $req->input('description');
-        $news->text = $req->input('newsText');
+        $news->headline = trim($req->input('headline'));
+        $news->description = trim($req->input('description'));
+        $news->text = trim($req->input('newsText'));
         $news->likes = 77;
         $news->category = $req->input('category');
         $news->deleted = 0;
@@ -29,7 +29,7 @@ class NewsController extends Controller
             if(!file_exists($filePath)){
                 $this->uploadOne($image, $folder, 'public', $name);
             }
-            $news->photo = $filePath;
+            $news->photo = 'storage'.$filePath;
         }
         $news->save();
         return redirect()->route('home')->with('success','Новость добавлена');

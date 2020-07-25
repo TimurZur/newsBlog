@@ -9,7 +9,10 @@
             <div class="news col-xs-12 col-sm-12 col-lg-8 col-xl-6">
                 <div class="news__category"><div class="news__category-label"></div>{{$el->category}}</div>
                 <div class="news__image">
-                    <img src="https://avatars.mds.yandex.net/get-ynews/1738766/04e967c0f3a7393e6299989bd358c3f2/563x304" alt="image">
+                    @if(!is_null($el->photo))
+                        <img src="{{$el->photo}}" alt="image">
+                    @endif
+                    <!--<span>https://avatars.mds.yandex.net/get-ynews/1738766/04e967c0f3a7393e6299989bd358c3f2/563x304</span>-->
                 </div>
                 <a class="news__header" href="#"><h3>{{$el->headline}}</h3></a>
                 <div class="news__description">
