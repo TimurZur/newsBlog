@@ -14,10 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'NewsController@allData')->name('home');
-
 Route::get('/create', function () {
     return view('create');
 })->name('create');
 
 Route::post('/create/submit', 'NewsController@submit')->name('create-submit');
 
+Route::get('/{id}', 'NewsController@showOneNews')->name('one-news');
+Route::get('/{id}/edit', 'NewsController@editNews')->name('news-edit');
+Route::post('/{id}/edit', 'NewsController@editNewsSubmit')->name('news-edit-submit');

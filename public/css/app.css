@@ -45,3 +45,12 @@
   cursor: pointer;
 }
 
+.controls {
+  margin-top: 1em;
+}
+
+.preview-image {
+  margin-top: 1rem;
+  width: 50%;
+}
+

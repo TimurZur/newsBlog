@@ -44,6 +44,40 @@ class NewsController extends Controller
         return $file;
     }
     public function allData(){
-        return view('home',['data'=>News::all()]);
+        $news = new News;
+        return view('home',['data'=>$news->all()]);
+    }
+
+    public function showOneNews($id){
+        $news = new News;
+        return view('oneNews',['data'=>$news->find($id)]);
+    }
+    public function editNews($id){
+        $news = new News;
+        return view('editNews',['data'=>$news->find($id)]);
+    }
+    public function editNewsSubmit($id, NewsRequest $req){
+        $news = News::find($id);
+        $news->headline = trim($req->input('headline'));
+        $news->description = trim($req->input('description'));
+        $news->text = trim($req->input('newsText'));
+        $news->likes = 77;
+        $news->category = $req->input('category');
+        $news->deleted = 0;
+        if (!is_null($req->file('photo'))) {
+            // Get image file
+            $image = $req->file('photo');
+            $name =  $image->getClientOriginalName();
+            // Define folder path
+            $folder = '/uploads/images/';
+            $filePath = $folder . $name;
+            // Upload image
+            if(!file_exists($filePath)){
+                $this->uploadOne($image, $folder, 'public', $name);
+                $news->photo = $filePath;
+            }
+        }
+        $news->save();
+        return redirect()->route('one-news',$id)->with('success','Новость сохранена');
     }
 }

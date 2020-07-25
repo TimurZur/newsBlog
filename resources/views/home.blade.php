@@ -14,7 +14,7 @@
                     @endif
                     <!--<span>https://avatars.mds.yandex.net/get-ynews/1738766/04e967c0f3a7393e6299989bd358c3f2/563x304</span>-->
                 </div>
-                <a class="news__header" href="#"><h3>{{$el->headline}}</h3></a>
+                <a class="news__header" href="{{route('one-news',$el->id)}}"><h3>{{$el->headline}}</h3></a>
                 <div class="news__description">
                     {{$el->description}}
                 </div>
