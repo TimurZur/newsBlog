@@ -41,6 +41,9 @@
     margin-top: 0.5rem;
 }
 
+.news__likes {
+    user-select: none;
+}
 .news__likes svg{
     cursor: pointer;
 }

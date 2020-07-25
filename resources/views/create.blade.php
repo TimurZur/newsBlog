@@ -11,8 +11,10 @@
             <input type="text" name="headline" id="headline" class="form-control" placeholder="Заголовок">
         </div>
         <div class="form-group d-flex flex-column">
-            <label for="photo">Изображение</label>
-            <input type="file" name="photo" id="photo" class="image-input">
+            <div class="custom-file">
+                <label for="photo" class="custom-file-label">Изображение</label>
+                <input type="file" name="photo" id="photo" class="image-input custom-file-input">
+            </div>
             <div class="news__image preview-image" id="preview-image">
                 <img src="#" alt="" id="preview-image-img">
             </div>

@@ -41,6 +41,13 @@
   margin-top: 0.5rem;
 }
 
+.news__likes {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
 .news__likes svg {
   cursor: pointer;
 }
