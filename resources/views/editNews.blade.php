@@ -15,7 +15,7 @@
                 <label for="photo" class="custom-file-label">Изображение</label>
                 <input type="file" name="photo" id="photo" class="image-input custom-file-input">
             </div>
-            <div class="news__image preview-image" id="preview-image">
+            <div class="news__image preview-image col-xs-12 col-sm-12 col-lg-8 col-xl-6" id="preview-image">
                 <img src="{{asset('storage/'.$data->photo)}}" alt="" id="preview-image-img">
             </div>
         </div>
