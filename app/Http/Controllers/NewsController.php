@@ -15,7 +15,7 @@ class NewsController extends Controller
         $news->headline = trim($req->input('headline'));
         $news->description = trim($req->input('description'));
         $news->text = trim($req->input('newsText'));
-        $news->likes = 77;
+        $news->likes = 0;
         $news->category = $req->input('category');
         $news->deleted = 0;
         if (!is_null($req->file('photo'))) {
@@ -61,7 +61,6 @@ class NewsController extends Controller
         $news->headline = trim($req->input('headline'));
         $news->description = trim($req->input('description'));
         $news->text = trim($req->input('newsText'));
-        $news->likes = 77;
         $news->category = $req->input('category');
         $news->deleted = 0;
         if (!is_null($req->file('photo'))) {
@@ -85,5 +84,16 @@ class NewsController extends Controller
         $news->deleted = 1;
         $news->save();
         return redirect()->route('home')->with('success','Новость удалена');
+    }
+
+    public function likeNews($id){
+        $news = News::find($id);
+        $news->likes += 1;
+        $news->save();
+        //return $news->likes;
+    }
+    public function getLikes($id){
+        $news = News::find($id);
+        return $news->likes;
     }
 }

@@ -19332,6 +19332,28 @@ module.exports = function(module) {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+$('.likesButton').on('click', function () {
+  var newsID = $(this).siblings('.newsID').val();
+  var likesSpan = $(this).siblings('.likesCount');
+  $.ajax({
+    type: "POST",
+    url: 'like/' + newsID,
+    data: {
+      _token: token
+    }
+  }).done(function () {
+    $.ajax({
+      type: "GET",
+      url: 'like/' + newsID,
+      data: {
+        _token: token
+      }
+    }).done(function (res) {
+      likesSpan.html(res);
+    });
+  });
+});
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":

@@ -25,3 +25,7 @@ Route::get('/{id}/edit', 'NewsController@editNews')->name('news-edit');
 Route::post('/{id}/edit', 'NewsController@editNewsSubmit')->name('news-edit-submit');
 Route::get('/{id}/delete', 'NewsController@deleteNews')->name('news-delete');
 
+Route::post('/like/{id}', 'NewsController@likeNews')->name('news-like');
+Route::get('/like/{id}', 'NewsController@getLikes')->name('news-like-get');
+
+
