@@ -18,4 +18,8 @@ class NewsController extends Controller
         $news->save();
         return redirect()->route('home')->with('success','Новость добавлена');
     }
+
+    public function allData(){
+        return view('home',['data'=>News::all()]);
+    }
 }
