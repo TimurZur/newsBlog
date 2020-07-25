@@ -28,7 +28,7 @@ class NewsRequest extends FormRequest
             'description'=>'required',
             'newsText'=>'required',
             'category'=>'required',
-            'photo'=>'image|mimes:jpeg,png,jpg,gif,webp|max:2048'
+            'photo'=>'image|mimes:jpeg,png,jpg,gif,webp|max:10'
         ];
     }
     public function messages()
@@ -38,7 +38,8 @@ class NewsRequest extends FormRequest
             'description.required'=>'Введите описание',
             'newsText.required'=>'Введите текст новости',
             'category.required'=>'Выберите категорию',
-            'photo.mimes'=>'Фото только jpeg,png,jpg,gif,webp'
+            'photo.mimes'=>'Фото только jpeg,png,jpg,gif,webp',
+            'photo.max'=>'Максимальный размер изображения - 10КБ'
         ];
     }
 }
