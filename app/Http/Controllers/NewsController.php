@@ -6,6 +6,7 @@ use App\Http\Requests\NewsRequest;
 use Illuminate\Http\Request;
 use App\News;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class NewsController extends Controller
@@ -80,12 +81,14 @@ class NewsController extends Controller
                 break;
         }
         //Вывод
-        return view('home',['data'=>$news->get(),'sortType'=>$sortType, 'categoryType'=>$categoryType]);
+        $categories = DB::table('categories')->select('name')->get();
+        return view('home',['data'=>$news->get(),'sortType'=>$sortType, 'categoryType'=>$categoryType, 'categories'=>$categories]);
     }
 
     public function showOneNews($id){
         $news = new News;
-        return view('oneNews',['data'=>$news->find($id)]);
+        $categories = DB::table('categories')->select('name')->get();
+        return view('oneNews',['data'=>$news->find($id),'categories'=>$categories]);
     }
     public function editNews($id){
         $news = new News;

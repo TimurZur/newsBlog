@@ -31,7 +31,7 @@
     @foreach($data as $el)
             @if($el->deleted != 1)
                 <div class="news col-xs-12 col-sm-12 col-lg-8 col-xl-6">
-                    <div class="news__category"><div class="news__category-label"></div>{{$el->category_id}}</div>
+                    <div class="news__category text-capitalize"><div class="news__category-label"></div>{{$categories[$el->category_id-1]->name}}</div>
                     <div class="news__image">
                         @if(!is_null($el->photo))
                             <img src="{{asset('storage/'.$el->photo)}}" alt="{{$el->headline}}" class="">
