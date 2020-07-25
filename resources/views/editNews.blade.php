@@ -13,8 +13,8 @@
         <div class="form-group d-flex flex-column">
             <label for="photo">Изображение</label>
             <input type="file" name="photo" id="photo" class="image-input">
-            <div class="news__image preview-image">
-                <img src="{{asset('storage/'.$data->photo)}}" alt="">
+            <div class="news__image preview-image" id="preview-image">
+                <img src="{{asset('storage/'.$data->photo)}}" alt="" id="preview-image-img">
             </div>
         </div>
         <div class="form-group">
