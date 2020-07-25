@@ -46,20 +46,41 @@ class NewsController extends Controller
     public function allData(Request $req){
         $news = new News;
         $sortType = $req->sort;
-        switch ($sortType){
-            case 'date_desc':
-                return view('home',['data'=>$news->orderBy('created_at','desc')->get(),'sortType'=>'date_desc']);
+        $categoryType = $req->category;
+
+        //Группировка
+        switch ($categoryType){
+            case 'Политика':
+                $news = $news->where('category','=','Политика');
                 break;
-            case 'likes':
-                return view('home',['data'=>$news->orderBy('likes','desc')->get(),'sortType'=>'likes']);
+            case 'Спорт':
+                $news = $news->where('category','=','Спорт');
                 break;
-            case 'likes_asc':
-                return view('home',['data'=>$news->orderBy('likes','asc')->get(),'sortType'=>'likes_asc']);
+            case 'Коронавирус':
+                $news = $news->where('category','=','Коронавирус');
                 break;
             default:
-                return view('home',['data'=>$news->all(),'sortType'=>'date']);
+                $categoryType='all';
                 break;
         }
+        //Сортировка
+        switch ($sortType){
+            case 'date_desc':
+                $news = $news->orderBy('created_at','desc');
+                break;
+            case 'likes':
+                $news = $news->orderBy('likes','desc');
+                break;
+            case 'likes_asc':
+                $news = $news->orderBy('likes','asc');
+                break;
+            default:
+                $sortType = 'date';
+                $news = $news->orderBy('created_at','asc');
+                break;
+        }
+        //Вывод
+        return view('home',['data'=>$news->get(),'sortType'=>$sortType, 'categoryType'=>$categoryType]);
     }
 
     public function showOneNews($id){
