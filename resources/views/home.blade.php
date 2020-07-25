@@ -4,6 +4,18 @@
 
 @section('content')
     <!--<h1>Новости</h1>-->
+    <div class="row d-flex align-items-center justify-content-center sortWrapper">
+        <form action="{{route('home')}}" method="get" class="sortType col-xs-12 col-sm-12 col-lg-8 col-xl-6">
+            <label for="sort">Сортировка:</label>
+            <select name="sort" id="sort" class="form-control">
+                <option {{$sortType=='date'?'selected ':''}} value="date">По дате создания</option>
+                <option {{$sortType=='date_desc'?'selected ':''}}value="date_desc">По убыванию даты создания</option>
+                <option {{$sortType=='likes'?'selected ':''}}value="likes">По количеству лайков</option>
+                <option {{$sortType=='likes_asc'?'selected ':''}}value="likes_asc">По возрастанию количества лайков</option>
+            </select>
+            <input type="submit" class="btn btn-primary mt-3" value="Ок">
+        </form>
+    </div>
     <div class="news-wrapper row">
     @foreach($data as $el)
             @if($el->deleted != 1)

@@ -43,9 +43,23 @@ class NewsController extends Controller
 
         return $file;
     }
-    public function allData(){
+    public function allData(Request $req){
         $news = new News;
-        return view('home',['data'=>$news->all()]);
+        $sortType = $req->sort;
+        switch ($sortType){
+            case 'date_desc':
+                return view('home',['data'=>$news->orderBy('created_at','desc')->get(),'sortType'=>'date_desc']);
+                break;
+            case 'likes':
+                return view('home',['data'=>$news->orderBy('likes','desc')->get(),'sortType'=>'likes']);
+                break;
+            case 'likes_asc':
+                return view('home',['data'=>$news->orderBy('likes','asc')->get(),'sortType'=>'likes_asc']);
+                break;
+            default:
+                return view('home',['data'=>$news->all(),'sortType'=>'date']);
+                break;
+        }
     }
 
     public function showOneNews($id){
