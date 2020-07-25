@@ -29,7 +29,7 @@ class NewsController extends Controller
             if(!file_exists($filePath)){
                 $this->uploadOne($image, $folder, 'public', $name);
             }
-            $news->photo = 'storage'.$filePath;
+            $news->photo = $filePath;
         }
         $news->save();
         return redirect()->route('home')->with('success','Новость добавлена');

@@ -10,7 +10,7 @@
                 <div class="news__category"><div class="news__category-label"></div>{{$el->category}}</div>
                 <div class="news__image">
                     @if(!is_null($el->photo))
-                        <img src="{{$el->photo}}" alt="image">
+                        <img src="{{asset('storage/'.$el->photo)}}" alt="{{$el->headline}}" class="">
                     @endif
                     <!--<span>https://avatars.mds.yandex.net/get-ynews/1738766/04e967c0f3a7393e6299989bd358c3f2/563x304</span>-->
                 </div>
